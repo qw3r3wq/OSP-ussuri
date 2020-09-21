@@ -1,0 +1,6 @@
+setfacl -Rcm d:u:stack:rwx /var/lib/image-serve
+setfacl -Rm d:u:stack:rwx /var/lib/image-serve
+openstack tripleo container image prepare default --local-push-destination --output-env-file containers-prepare-parameter.yaml
+
+# Modify push_destination: IP:8787
+openstack tripleo container image prepare -e containers-prepare-parameter.yaml --output-env-file=overcloud_images.yaml

@@ -1,0 +1,8 @@
+#!/bin/bash
+#sleep 120
+# ENABLE PowerTools in /etc/yum.repos.d/CentOS-PowerTools.repo?
+sudo dnf install -y python3-tripleoclient ceph-ansible git
+cd ~stack
+openstack undercloud install 
+#bash /home/stack/undercloud.deploy3
+

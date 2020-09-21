@@ -1,0 +1,13 @@
+cp -ar /etc/yum.repos.d repos
+sed -i s/gpgcheck=1/gpgcheck=0/g repos/*repo
+export DIB_YUM_REPO_CONF="$(ls /home/stack/repos/*repo)"
+export STABLE_RELEASE="ussuri"
+source /home/stack/stackrc
+mkdir /home/stack/images
+cd /home/stack/images
+openstack overcloud image build && openstack overcloud image upload
+cd /home/stack
+ls /home/stack/images
+
+#bash /home/stack/undercloud.deploy4
+

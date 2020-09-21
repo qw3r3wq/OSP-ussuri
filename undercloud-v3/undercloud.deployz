@@ -1,0 +1,1 @@
+for i in $(openstack baremetal node list -f value -c UUID) ; do echo openstack baremetal node set --property root_device=\'\{\"serial\": \"$(openstack baremetal introspection data save $i | jq ".inventory.disks" | egrep 'name|serial' | grep sda -B1 | awk '-F"' '{if($2=="serial")print $4}')\"\}\' $i ; done

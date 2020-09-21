@@ -1,0 +1,33 @@
+openstack overcloud node import remote-u/undercloud/instackenv_remote.json
+openstack baremetal node set --property root_device='{"name": "/dev/sda"}' UUID
+openstack overcloud node introspect --all-manageable --provide
+openstack overcloud node introspect UUID [UUID]
+openstack overcloud node provide UUID [UUID]
+
+
+# baremetal node list
+# openstack overcloud node introspect 1516bb56-e198-4cc7-8229-e577bf1079b5
+# openstack overcloud node provide 1516bb56-e198-4cc7-8229-e577bf1079b5
+# baremetal node list
+# baremetal node manage 1516bb56-e198-4cc7-8229-e577bf1079b5
+# baremetal node list
+# baremetal node maintenance unset 1516bb56-e198-4cc7-8229-e577bf1079b5
+# baremetal node list
+# baremetal node listopenstack overcloud node introspect --all-manageable --provide
+# openstack overcloud node introspect --all-manageable --provide
+# baremetal node list
+# sudo -s
+# now-under 
+# baremetal node show
+# baremetalport list
+# baremetal port list
+# baremetal port show dd7a8191-626c-41ed-b5a8-23d9b140ca34
+# openstack baremetal port set --physical-network remote-provision 1516bb56-e198-4cc7-8229-e577bf1079b5
+# openstack baremetal port set --physical-network remote-provision dd7a8191-626c-41ed-b5a8-23d9b140ca34
+# openstack overcloud node introspect 1516bb56-e198-4cc7-8229-e577bf1079b5
+# openstack overcloud node provide 1516bb56-e198-4cc7-8229-e577bf1079b5
+# baremetal node list
+# openstack overcloud node list
+# vi remote-u/undercloud/instackenv_remote.json 
+# #openstack overcloud roles generate -o remote-u/overcloud/roles-data.yaml Controller Compute
+
