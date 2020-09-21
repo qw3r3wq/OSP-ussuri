@@ -14,6 +14,7 @@ time openstack --verbose overcloud deploy \
     -e ${_LTHT}/containers-prepare-parameter.yaml \
     -e ${_LTHT}/overcloud_images.yaml \
     -e ${_THT}/environments/disable-telemetry.yaml \
+    -e ${_LTHT}/node-info.yaml \
     -e ${_THT}/environments/ceph-ansible/ceph-ansible.yaml \
     -e ${_THT}/environments/ceph-ansible/ceph-rgw.yaml \
     -e ${_THT}/environments/ceph-ansible/ceph-mds.yaml \

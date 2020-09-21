@@ -1,6 +1,6 @@
-# Generated with the following on 2020-09-16T09:59:22.647686
+# Generated with the following on 2020-09-21T19:55:21.077473
 #
-#   openstack tripleo container image prepare -e containers-prepare-parameter.yaml --output-env-file=overcloud_images.yaml
+#   openstack tripleo container image prepare -e containers-prepare-parameter.yaml -r roles_data.yaml --output-env-file=overcloud_images.yaml --verbose
 #
 
 parameter_defaults:

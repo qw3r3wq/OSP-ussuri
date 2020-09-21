@@ -116,7 +116,6 @@ parameter_defaults:
     #    crush_device_class: 'ssd'
     osd_scenario: lvm
     osd_objectstore: bluestore
-    journal_size: 16384
   CephPoolDefaultSize: 2
   CephPoolDefaultPgNum: 1024
   CephConfigOverrides:
@@ -136,7 +135,6 @@ parameter_defaults:
     health_osd_check_delay: 15
     mon_host_v1:
       enabled: False
-    #    journal_size: 40960
   CephPools:
     - name: volumes
       pg_num: 64
