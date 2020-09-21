@@ -85,24 +85,76 @@ parameter_defaults:
   NeutronNetworkVLANRanges: 'default:1:1'
   NeutronGlobalPhysnetMtu: 1500
 
+  GlanceBackend: rbd
+  GnocchiBackend: rbd
+
+  CephDashboardAdminRO: false
+
   CinderEnableIscsiBackend: false
   CinderEnableNfsBackend: false
-  NovaEnableRbdBackend: false
+  NovaEnableRbdBackend: true
+  CephExtraKeys:
+    - name: "client.glance"
+      caps:
+        mgr: "allow *"
+        mon: "profile rbd"
+        osd: "profile rbd pool=images"
+      key: "AQCgpWRfuU8hLBAAP7EHl5AxpnjA+fOpmHm5Qw=="
+      mode: "0600"
   CephAnsibleDiskConfig:
     devices:
-      - /dev/sdb
-    osd_scenario: collocated
+      - /dev/sdc
+      - /dev/sde
+      - /dev/sdd
+    # osd_scenario: collocated - possible
+    #lvm_volumes:
+    #  - data: '/dev/sdc'
+    #    crush_device_class: 'ssd'
+    #  - data: '/dev/sde'
+    #    crush_device_class: 'ssd'
+    #  - data: '/dev/sde'
+    #    crush_device_class: 'ssd'
+    osd_scenario: lvm
+    osd_objectstore: bluestore
     journal_size: 16384
   CephPoolDefaultSize: 2
-  CephPoolDefaultPgNum: 256
+  CephPoolDefaultPgNum: 1024
   CephConfigOverrides:
-    mon_max_pg_per_osd: 4096
-    max_open_files: 262144
-  CephAnsiblePlaybookVerbosity: 2
+    global:
+      mon_max_pg_per_osd: 4096
+      max_open_files: 262144
+  CephAnsiblePlaybookVerbosity: 4
   CephAnsibleExtraConfig:
+    is_hci: true
+    ceph_osd_docker_cpu_limit: 1
     osd_recovery_op_priority: 2
     osd_recovery_max_active: 4
     osd_max_backfills: 1
+    health_mon_check_retries: 5
+    health_mon_check_delay: 15
+    health_osd_check_retries: 5
+    health_osd_check_delay: 15
+    mon_host_v1:
+      enabled: False
+    #    journal_size: 40960
+  CephPools:
+    - name: volumes
+      pg_num: 64
+      application: rbd
+    - name: vms
+      pg_num: 64
+      application: rbd
+    - name: images
+      pg_num: 64
+      application: rbd
+    - name: metrics
+      pg_num: 10
+      pgp_num: 10
+      size: 1
+      application: openstack_gnocchi
+  CephAnsibleEnvironmentVariables:
+    ANSIBLE_SSH_RETRIES: '6'
+    DEFAULT_FORKS: '25'
 
   KernelArgs: "crashkernel=no rhgb console=ttyS1,115200 console=ttyS0,115200n8"
   NovaReservedHostMemory: 16384
@@ -123,3 +175,4 @@ parameter_defaults:
     ALERT! You are entering into a secured VGTU Cloud area!
     This service is restricted to authorized users only.
     Please keep in mind, we are Angry and Bold! We will destroy you!
+
