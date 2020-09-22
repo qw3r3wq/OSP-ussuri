@@ -16,7 +16,7 @@ time openstack --verbose overcloud deploy \
     -e ${_THT}/environments/ceph-ansible/ceph-ansible.yaml \
     -e ${_THT}/environments/ceph-ansible/ceph-dashboard.yaml \
     -e ${_LTHT}/node-info-minimal.yaml \
-    --ntp-server 8.8.8.8
+    --ntp-server ntp1.litnet.lt
 
 #    -e ${_LTHT}/private.yaml \
 #    

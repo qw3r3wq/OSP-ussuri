@@ -2,6 +2,42 @@ resource_registry:
   OS::TripleO::Controller::Net::SoftwareConfig: nic-config/controller.yaml
   OS::TripleO::ComputeHCI::Net::SoftwareConfig: nic-config/distributedcomputehci.yaml
 
+  # VIP ports
+  OS::TripleO::Network::Ports::InternalApiVipPort: /usr/share/openstack-tripleo-heat-templates/network/ports/internal_api.yaml
+  OS::TripleO::Network::Ports::StorageMgmtVipPort: /usr/share/openstack-tripleo-heat-templates/network/ports/storage_mgmt.yaml
+  OS::TripleO::Network::Ports::StorageVipPort: /usr/share/openstack-tripleo-heat-templates/network/ports/storage.yaml
+  OS::TripleO::Network::Ports::ExternalVipPort: /usr/share/openstack-tripleo-heat-templates/network/ports/external.yaml
+  # OS::TripleO::Network::Ports::RedisVipPort: /usr/share/openstack-tripleo-heat-templates/network/ports/vip.yaml
+
+  # To use network from network_data.yaml
+  OS::TripleO::Network::Storage: /usr/share/openstack-tripleo-heat-templates/network/storage.yaml
+  OS::TripleO::Network::StorageMgmt: /usr/share/openstack-tripleo-heat-templates/network/storage_mgmt.yaml
+  OS::TripleO::Network::InternalApi: /usr/share/openstack-tripleo-heat-templates/network/internal_api.yaml
+  OS::TripleO::Network::Tenant: /usr/share/openstack-tripleo-heat-templates/network/tenant.yaml
+  OS::TripleO::Network::External: /usr/share/openstack-tripleo-heat-templates/network/external.yaml
+
+  # Per Role configs
+  #####OS::TripleO::Controller::Ports::InternalApiPort: /usr/share/openstack-tripleo-heat-templates/network/internal_api.yaml
+  #####OS::TripleO::Controller::Ports::StorageMgmtPort: /usr/share/openstack-tripleo-heat-templates/network/storage_mgmt.yaml
+  #####OS::TripleO::Controller::Ports::StoragePort: /usr/share/openstack-tripleo-heat-templates/network/storage.yaml
+  #####OS::TripleO::Controller::Ports::TenantPort: /usr/share/openstack-tripleo-heat-templates/network/tenant.yaml
+  #####OS::TripleO::Controller::Ports::ExternalPort: /usr/share/openstack-tripleo-heat-templates/network/external.yaml
+  OS::TripleO::Controller::Ports::InternalApiPort: /usr/share/openstack-tripleo-heat-templates/network/ports/internal_api.yaml
+  OS::TripleO::Controller::Ports::StorageMgmtPort: /usr/share/openstack-tripleo-heat-templates/network/ports/storage_mgmt.yaml
+  OS::TripleO::Controller::Ports::StoragePort: /usr/share/openstack-tripleo-heat-templates/network/ports/storage.yaml
+  OS::TripleO::Controller::Ports::TenantPort: /usr/share/openstack-tripleo-heat-templates/network/ports/tenant.yaml
+  OS::TripleO::Controller::Ports::ExternalPort: /usr/share/openstack-tripleo-heat-templates/network/ports/external.yaml
+
+  #####OS::TripleO::DistributedComputeHCI::Ports::InternalApiPort: /usr/share/openstack-tripleo-heat-templates/network/internal_api.yaml
+  #####OS::TripleO::DistributedComputeHCI::Ports::StorageMgmtPort: /usr/share/openstack-tripleo-heat-templates/network/storage_mgmt.yaml
+  #####OS::TripleO::DistributedComputeHCI::Ports::StoragePort: /usr/share/openstack-tripleo-heat-templates/network/storage.yaml
+  #####OS::TripleO::DistributedComputeHCI::Ports::TenantPort: /usr/share/openstack-tripleo-heat-templates/network/tenant.yaml
+  OS::TripleO::DistributedComputeHCI::Ports::InternalApiPort: /usr/share/openstack-tripleo-heat-templates/network/ports/internal_api.yaml
+  OS::TripleO::DistributedComputeHCI::Ports::StorageMgmtPort: /usr/share/openstack-tripleo-heat-templates/network/ports/storage_mgmt.yaml
+  OS::TripleO::DistributedComputeHCI::Ports::StoragePort: /usr/share/openstack-tripleo-heat-templates/network/ports/storage.yaml
+  OS::TripleO::DistributedComputeHCI::Ports::TenantPort: /usr/share/openstack-tripleo-heat-templates/network/ports/tenant.yaml
+
+
 parameter_defaults:
   ComputeMaxFailPercentage: 50
   ControllerCount: 1
