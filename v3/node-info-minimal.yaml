@@ -86,9 +86,10 @@ parameter_defaults:
 
 #  CephDashboardAdminRO: false
 
-  CinderEnableIscsiBackend: false
-  CinderEnableNfsBackend: false
-  NovaEnableRbdBackend: true
+##  CinderEnableIscsiBackend: false
+##  CinderEnableNfsBackend: false
+##  NovaEnableRbdBackend: true
+
 #  CephExtraKeys:
 #    - name: "client.glance"
 #      caps:
@@ -115,12 +116,12 @@ parameter_defaults:
     osd_scenario: lvm
     osd_objectstore: bluestore
   CephPoolDefaultSize: 1
-  CephPoolDefaultPgNum: 1024
-  CephConfigOverrides:
-    global:
-      mon_max_pg_per_osd: 256
-      max_open_files: 262144
-  CephAnsiblePlaybookVerbosity: 4
+##  CephPoolDefaultPgNum: 1024
+##  CephConfigOverrides:
+##    global:
+##      mon_max_pg_per_osd: 256
+##      max_open_files: 262144
+##  CephAnsiblePlaybookVerbosity: 4
 ##  CephAnsibleExtraConfig:
 ##    is_hci: true
 ##    ceph_osd_docker_cpu_limit: 1
@@ -148,9 +149,9 @@ parameter_defaults:
 #      pgp_num: 10
 #      size: 1
 #      application: openstack_gnocchi
-#  CephAnsibleEnvironmentVariables:
-#    ANSIBLE_SSH_RETRIES: '6'
-#    DEFAULT_FORKS: '25'
+  CephAnsibleEnvironmentVariables:
+    ANSIBLE_SSH_RETRIES: '6'
+    DEFAULT_FORKS: '25'
 
   KernelArgs: "crashkernel=no rhgb console=ttyS1,115200 console=ttyS0,115200n8"
   NovaReservedHostMemory: 16384
