@@ -82,31 +82,31 @@ parameter_defaults:
   CephPoolDefaultPgNum: 1024
   CephConfigOverrides:
     global:
-      mon_max_pg_per_osd: 4096
+      mon_max_pg_per_osd: 256
       max_open_files: 262144
   CephAnsiblePlaybookVerbosity: 4
-  CephAnsibleExtraConfig:
-    is_hci: true
-    ceph_osd_docker_cpu_limit: 1
-    osd_recovery_op_priority: 2
-    osd_recovery_max_active: 4
-    osd_max_backfills: 1
-    health_mon_check_retries: 5
-    health_mon_check_delay: 15
-    health_osd_check_retries: 5
-    health_osd_check_delay: 15
-    mon_host_v1:
-      enabled: False
-  CephPools:
-    - name: volumes
-      pg_num: 64
-      application: rbd
-    - name: vms
-      pg_num: 64
-      application: rbd
-    - name: images
-      pg_num: 64
-      application: rbd
+##  CephAnsibleExtraConfig:
+##    is_hci: true
+##    ceph_osd_docker_cpu_limit: 1
+##    osd_recovery_op_priority: 2
+##    osd_recovery_max_active: 4
+##    osd_max_backfills: 1
+##    health_mon_check_retries: 5
+##    health_mon_check_delay: 15
+##    health_osd_check_retries: 5
+##    health_osd_check_delay: 15
+##    mon_host_v1:
+##      enabled: False
+##  CephPools:
+##    - name: volumes
+##      pg_num: 64
+##      application: rbd
+##    - name: vms
+##      pg_num: 64
+##      application: rbd
+##    - name: images
+##      pg_num: 64
+##      application: rbd
 #    - name: metrics
 #      pg_num: 10
 #      pgp_num: 10
