@@ -1,0 +1,138 @@
+resource_registry:
+  OS::TripleO::Controller::Net::SoftwareConfig: nic-config/controller.yaml
+  OS::TripleO::ComputeHCI::Net::SoftwareConfig: nic-config/distributedcomputehci.yaml
+
+parameter_defaults:
+  ComputeMaxFailPercentage: 50
+  ControllerCount: 1
+  ComputeHCICount: 1
+
+  #OvercloudControllerFlavor: control
+  #OvercloudComputeHCIFlavor: compute
+  #  ComputeHCIControlPlaneSubnet: remote-provision
+
+  ControllerHostnameFormat: '%stackname%-ctrl-%index%'
+  ComputeHCIHostnameFormat: '%stackname%-hci-%index%'
+
+  #  ControllerSchedulerHints:
+  #    'capabilities:profile': 'control'
+  #  ComputeHCISchedulerHints:
+  #    'capabilities:profile': 'compute'
+
+  TimeZone: "Europe/Vilnius"
+  ControlFixedIPs: [{'ip_address':'10.40.1.229'}]
+  PublicVirtualFixedIPs: [{'ip_address':'158.129.213.250'}]
+  InternalApiVirtualFixedIPs: [{'ip_address':'172.16.2.250'}]
+  StorageMgmtVirtualFixedIPs: [{'ip_address':'172.16.3.250'}]
+  StorageVirtualFixedIPs: [{'ip_address':'172.16.1.250'}]
+
+  ComputeHCIExtraConfig:
+    nova::cpu_allocation_ratio: 10.0
+    nova::compute::libvirt::rx_queue_size: 1024
+    nova::compute::libvirt::tx_queue_size: 1024
+    nova::compute::resume_guests_state_on_host_boot: true
+
+  NetworkDeploymentActions: ['CREATE','UPDATE']
+  BondInterfaceOvsOptions: 'bond_mode=balance-slb'
+#  NeutronBridgeMappings: datacentre:br-ex
+  # NeutronExternalNetworkBridge: 'br-ex'
+
+  NeutronEnableIsolatedMetadata: true
+  NeutronEnableForceMetadata: true
+  NeutronNetworkType: 'geneve'
+  NeutronTunnelTypes: 'gre,vlan,geneve,vxlan,flat'
+  NeutronBridgeMappings: 'default:br-provider'
+  NeutronNetworkVLANRanges: 'default:1:1'
+  NeutronGlobalPhysnetMtu: 1500
+
+  GlanceBackend: rbd
+  GnocchiBackend: rbd
+
+#  CephDashboardAdminRO: false
+
+  CinderEnableIscsiBackend: false
+  CinderEnableNfsBackend: false
+  NovaEnableRbdBackend: true
+#  CephExtraKeys:
+#    - name: "client.glance"
+#      caps:
+#        mgr: "allow *"
+#        mon: "profile rbd"
+#        osd: "profile rbd pool=images"
+#      key: "AQCgpWRfuU8hLBAAP7EHl5AxpnjA+fOpmHm5Qw=="
+#      mode: "0600"
+
+#  CephAnsibleDiskConfig:
+#    # osd_scenario: collocated - possible
+#    #lvm_volumes:
+#    #  - data: '/dev/sdc'
+#    #    crush_device_class: 'ssd'
+#    #  - data: '/dev/sde'
+#    #    crush_device_class: 'ssd'
+#    #  - data: '/dev/sde'
+#    #    crush_device_class: 'ssd'
+  CephAnsibleDiskConfig:
+    devices:
+      - /dev/sdc
+      - /dev/sde
+      - /dev/sdd
+    osd_scenario: lvm
+    osd_objectstore: bluestore
+  CephPoolDefaultSize: 1
+  CephPoolDefaultPgNum: 1024
+  CephConfigOverrides:
+    global:
+      mon_max_pg_per_osd: 4096
+      max_open_files: 262144
+  CephAnsiblePlaybookVerbosity: 4
+  CephAnsibleExtraConfig:
+    is_hci: true
+    ceph_osd_docker_cpu_limit: 1
+    osd_recovery_op_priority: 2
+    osd_recovery_max_active: 4
+    osd_max_backfills: 1
+    health_mon_check_retries: 5
+    health_mon_check_delay: 15
+    health_osd_check_retries: 5
+    health_osd_check_delay: 15
+    mon_host_v1:
+      enabled: False
+  CephPools:
+    - name: volumes
+      pg_num: 64
+      application: rbd
+    - name: vms
+      pg_num: 64
+      application: rbd
+    - name: images
+      pg_num: 64
+      application: rbd
+#    - name: metrics
+#      pg_num: 10
+#      pgp_num: 10
+#      size: 1
+#      application: openstack_gnocchi
+#  CephAnsibleEnvironmentVariables:
+#    ANSIBLE_SSH_RETRIES: '6'
+#    DEFAULT_FORKS: '25'
+
+  KernelArgs: "crashkernel=no rhgb console=ttyS1,115200 console=ttyS0,115200n8"
+  NovaReservedHostMemory: 16384
+  NovaIPv6: True
+  NovaSchedulerDefaultFilters: ['AvailabilityZoneFilter','ComputeFilter','ComputeCapabilitiesFilter','ImagePropertiesFilter','ServerGroupAntiAffinityFilter','ServerGroupAffinityFilter','PciPassthroughFilter','NUMATopologyFilter','AggregateInstanceExtraSpecsFilter']
+
+  BannerText: |
+    ******************************************************************
+    * ****************************  VGTU  ************************** *
+    * This system is for the use of authorized users only. Usage of  *
+    * this system may be monitored and recorded by system personnel. *
+    * Anyone using this system expressly consents to such monitoring *
+    * and is advised that if such monitoring reveals possible        *
+    * evidence of criminal activity, system personnel may provide    *
+    * the evidence from such monitoring to law enforcement officials.*
+    ******************************************************************
+  MessageOfTheDay: |
+    ALERT! You are entering into a secured VGTU Cloud area!
+    This service is restricted to authorized users only.
+    Please keep in mind, we are Angry and Bold! We will destroy you!
+
