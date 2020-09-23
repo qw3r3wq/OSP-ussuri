@@ -1,43 +1,43 @@
-resource_registry:
-  OS::TripleO::Controller::Net::SoftwareConfig: nic-config/controller.yaml
-  OS::TripleO::ComputeHCI::Net::SoftwareConfig: nic-config/distributedcomputehci.yaml
-
-  # VIP ports
-  OS::TripleO::Network::Ports::InternalApiVipPort: /usr/share/openstack-tripleo-heat-templates/network/ports/internal_api.yaml
-  OS::TripleO::Network::Ports::StorageMgmtVipPort: /usr/share/openstack-tripleo-heat-templates/network/ports/storage_mgmt.yaml
-  OS::TripleO::Network::Ports::StorageVipPort: /usr/share/openstack-tripleo-heat-templates/network/ports/storage.yaml
-  OS::TripleO::Network::Ports::ExternalVipPort: /usr/share/openstack-tripleo-heat-templates/network/ports/external.yaml
-  # OS::TripleO::Network::Ports::RedisVipPort: /usr/share/openstack-tripleo-heat-templates/network/ports/vip.yaml
-
-  # To use network from network_data.yaml
-  OS::TripleO::Network::Storage: /usr/share/openstack-tripleo-heat-templates/network/storage.yaml
-  OS::TripleO::Network::StorageMgmt: /usr/share/openstack-tripleo-heat-templates/network/storage_mgmt.yaml
-  OS::TripleO::Network::InternalApi: /usr/share/openstack-tripleo-heat-templates/network/internal_api.yaml
-  OS::TripleO::Network::Tenant: /usr/share/openstack-tripleo-heat-templates/network/tenant.yaml
-  OS::TripleO::Network::External: /usr/share/openstack-tripleo-heat-templates/network/external.yaml
-
-  # Per Role configs
-  #####OS::TripleO::Controller::Ports::InternalApiPort: /usr/share/openstack-tripleo-heat-templates/network/internal_api.yaml
-  #####OS::TripleO::Controller::Ports::StorageMgmtPort: /usr/share/openstack-tripleo-heat-templates/network/storage_mgmt.yaml
-  #####OS::TripleO::Controller::Ports::StoragePort: /usr/share/openstack-tripleo-heat-templates/network/storage.yaml
-  #####OS::TripleO::Controller::Ports::TenantPort: /usr/share/openstack-tripleo-heat-templates/network/tenant.yaml
-  #####OS::TripleO::Controller::Ports::ExternalPort: /usr/share/openstack-tripleo-heat-templates/network/external.yaml
-  OS::TripleO::Controller::Ports::InternalApiPort: /usr/share/openstack-tripleo-heat-templates/network/ports/internal_api.yaml
-  OS::TripleO::Controller::Ports::StorageMgmtPort: /usr/share/openstack-tripleo-heat-templates/network/ports/storage_mgmt.yaml
-  OS::TripleO::Controller::Ports::StoragePort: /usr/share/openstack-tripleo-heat-templates/network/ports/storage.yaml
-  OS::TripleO::Controller::Ports::TenantPort: /usr/share/openstack-tripleo-heat-templates/network/ports/tenant.yaml
-  OS::TripleO::Controller::Ports::ExternalPort: /usr/share/openstack-tripleo-heat-templates/network/ports/external.yaml
-
-  #####OS::TripleO::DistributedComputeHCI::Ports::InternalApiPort: /usr/share/openstack-tripleo-heat-templates/network/internal_api.yaml
-  #####OS::TripleO::DistributedComputeHCI::Ports::StorageMgmtPort: /usr/share/openstack-tripleo-heat-templates/network/storage_mgmt.yaml
-  #####OS::TripleO::DistributedComputeHCI::Ports::StoragePort: /usr/share/openstack-tripleo-heat-templates/network/storage.yaml
-  #####OS::TripleO::DistributedComputeHCI::Ports::TenantPort: /usr/share/openstack-tripleo-heat-templates/network/tenant.yaml
-  OS::TripleO::DistributedComputeHCI::Ports::InternalApiPort: /usr/share/openstack-tripleo-heat-templates/network/ports/internal_api.yaml
-  OS::TripleO::DistributedComputeHCI::Ports::StorageMgmtPort: /usr/share/openstack-tripleo-heat-templates/network/ports/storage_mgmt.yaml
-  OS::TripleO::DistributedComputeHCI::Ports::StoragePort: /usr/share/openstack-tripleo-heat-templates/network/ports/storage.yaml
-  OS::TripleO::DistributedComputeHCI::Ports::TenantPort: /usr/share/openstack-tripleo-heat-templates/network/ports/tenant.yaml
-
-
+##resource_registry:
+##  OS::TripleO::Controller::Net::SoftwareConfig: nic-config/controller.yaml
+##  OS::TripleO::ComputeHCI::Net::SoftwareConfig: nic-config/distributedcomputehci.yaml
+##
+##  # VIP ports
+##  OS::TripleO::Network::Ports::InternalApiVipPort: /usr/share/openstack-tripleo-heat-templates/network/ports/internal_api.yaml
+##  OS::TripleO::Network::Ports::StorageMgmtVipPort: /usr/share/openstack-tripleo-heat-templates/network/ports/storage_mgmt.yaml
+##  OS::TripleO::Network::Ports::StorageVipPort: /usr/share/openstack-tripleo-heat-templates/network/ports/storage.yaml
+##  OS::TripleO::Network::Ports::ExternalVipPort: /usr/share/openstack-tripleo-heat-templates/network/ports/external.yaml
+##  # OS::TripleO::Network::Ports::RedisVipPort: /usr/share/openstack-tripleo-heat-templates/network/ports/vip.yaml
+##
+##  # To use network from network_data.yaml
+##  OS::TripleO::Network::Storage: /usr/share/openstack-tripleo-heat-templates/network/storage.yaml
+##  OS::TripleO::Network::StorageMgmt: /usr/share/openstack-tripleo-heat-templates/network/storage_mgmt.yaml
+##  OS::TripleO::Network::InternalApi: /usr/share/openstack-tripleo-heat-templates/network/internal_api.yaml
+##  OS::TripleO::Network::Tenant: /usr/share/openstack-tripleo-heat-templates/network/tenant.yaml
+##  OS::TripleO::Network::External: /usr/share/openstack-tripleo-heat-templates/network/external.yaml
+##
+##  # Per Role configs
+##  #####OS::TripleO::Controller::Ports::InternalApiPort: /usr/share/openstack-tripleo-heat-templates/network/internal_api.yaml
+##  #####OS::TripleO::Controller::Ports::StorageMgmtPort: /usr/share/openstack-tripleo-heat-templates/network/storage_mgmt.yaml
+##  #####OS::TripleO::Controller::Ports::StoragePort: /usr/share/openstack-tripleo-heat-templates/network/storage.yaml
+##  #####OS::TripleO::Controller::Ports::TenantPort: /usr/share/openstack-tripleo-heat-templates/network/tenant.yaml
+##  #####OS::TripleO::Controller::Ports::ExternalPort: /usr/share/openstack-tripleo-heat-templates/network/external.yaml
+##  OS::TripleO::Controller::Ports::InternalApiPort: /usr/share/openstack-tripleo-heat-templates/network/ports/internal_api.yaml
+##  OS::TripleO::Controller::Ports::StorageMgmtPort: /usr/share/openstack-tripleo-heat-templates/network/ports/storage_mgmt.yaml
+##  OS::TripleO::Controller::Ports::StoragePort: /usr/share/openstack-tripleo-heat-templates/network/ports/storage.yaml
+##  OS::TripleO::Controller::Ports::TenantPort: /usr/share/openstack-tripleo-heat-templates/network/ports/tenant.yaml
+##  OS::TripleO::Controller::Ports::ExternalPort: /usr/share/openstack-tripleo-heat-templates/network/ports/external.yaml
+##
+##  #####OS::TripleO::DistributedComputeHCI::Ports::InternalApiPort: /usr/share/openstack-tripleo-heat-templates/network/internal_api.yaml
+##  #####OS::TripleO::DistributedComputeHCI::Ports::StorageMgmtPort: /usr/share/openstack-tripleo-heat-templates/network/storage_mgmt.yaml
+##  #####OS::TripleO::DistributedComputeHCI::Ports::StoragePort: /usr/share/openstack-tripleo-heat-templates/network/storage.yaml
+##  #####OS::TripleO::DistributedComputeHCI::Ports::TenantPort: /usr/share/openstack-tripleo-heat-templates/network/tenant.yaml
+##  OS::TripleO::DistributedComputeHCI::Ports::InternalApiPort: /usr/share/openstack-tripleo-heat-templates/network/ports/internal_api.yaml
+##  OS::TripleO::DistributedComputeHCI::Ports::StorageMgmtPort: /usr/share/openstack-tripleo-heat-templates/network/ports/storage_mgmt.yaml
+##  OS::TripleO::DistributedComputeHCI::Ports::StoragePort: /usr/share/openstack-tripleo-heat-templates/network/ports/storage.yaml
+##  OS::TripleO::DistributedComputeHCI::Ports::TenantPort: /usr/share/openstack-tripleo-heat-templates/network/ports/tenant.yaml
+##
+##
 parameter_defaults:
   ComputeMaxFailPercentage: 50
   ControllerCount: 1
@@ -56,40 +56,40 @@ parameter_defaults:
   #    'capabilities:profile': 'compute'
 
   TimeZone: "Europe/Vilnius"
-  ControlFixedIPs: [{'ip_address':'10.40.1.229'}]
-  PublicVirtualFixedIPs: [{'ip_address':'158.129.213.250'}]
-  InternalApiVirtualFixedIPs: [{'ip_address':'172.16.2.250'}]
-  StorageMgmtVirtualFixedIPs: [{'ip_address':'172.16.3.250'}]
-  StorageVirtualFixedIPs: [{'ip_address':'172.16.1.250'}]
-
-  ComputeHCIExtraConfig:
-    nova::cpu_allocation_ratio: 10.0
-    nova::compute::libvirt::rx_queue_size: 1024
-    nova::compute::libvirt::tx_queue_size: 1024
-    nova::compute::resume_guests_state_on_host_boot: true
-
-  NetworkDeploymentActions: ['CREATE','UPDATE']
+##  ControlFixedIPs: [{'ip_address':'10.40.1.229'}]
+##  PublicVirtualFixedIPs: [{'ip_address':'158.129.213.250'}]
+##  InternalApiVirtualFixedIPs: [{'ip_address':'172.16.2.250'}]
+##  StorageMgmtVirtualFixedIPs: [{'ip_address':'172.16.3.250'}]
+##  StorageVirtualFixedIPs: [{'ip_address':'172.16.1.250'}]
+##
+##  ComputeHCIExtraConfig:
+##    nova::cpu_allocation_ratio: 10.0
+##    nova::compute::libvirt::rx_queue_size: 1024
+##    nova::compute::libvirt::tx_queue_size: 1024
+##    nova::compute::resume_guests_state_on_host_boot: true
+##
+##  NetworkDeploymentActions: ['CREATE','UPDATE']
   BondInterfaceOvsOptions: 'bond_mode=balance-slb'
 #  NeutronBridgeMappings: datacentre:br-ex
   # NeutronExternalNetworkBridge: 'br-ex'
 
-  NeutronEnableIsolatedMetadata: true
-  NeutronEnableForceMetadata: true
-  NeutronNetworkType: 'geneve'
-  NeutronTunnelTypes: 'gre,vlan,geneve,vxlan,flat'
-  NeutronBridgeMappings: 'default:br-provider'
-  NeutronNetworkVLANRanges: 'default:1:1'
-  NeutronGlobalPhysnetMtu: 1500
-
-  GlanceBackend: rbd
-  GnocchiBackend: rbd
-
+##  NeutronEnableIsolatedMetadata: true
+##  NeutronEnableForceMetadata: true
+##  NeutronNetworkType: 'geneve'
+##  NeutronTunnelTypes: 'gre,vlan,geneve,vxlan,flat'
+##  NeutronBridgeMappings: 'default:br-provider'
+##  NeutronNetworkVLANRanges: 'default:1:1'
+##  NeutronGlobalPhysnetMtu: 1500
+##
+##  GlanceBackend: rbd
+##  GnocchiBackend: rbd
+##
 #  CephDashboardAdminRO: false
-
+##
 ##  CinderEnableIscsiBackend: false
 ##  CinderEnableNfsBackend: false
 ##  NovaEnableRbdBackend: true
-
+##
 #  CephExtraKeys:
 #    - name: "client.glance"
 #      caps:
@@ -98,7 +98,7 @@ parameter_defaults:
 #        osd: "profile rbd pool=images"
 #      key: "AQCgpWRfuU8hLBAAP7EHl5AxpnjA+fOpmHm5Qw=="
 #      mode: "0600"
-
+##
 #  CephAnsibleDiskConfig:
 #    # osd_scenario: collocated - possible
 #    #lvm_volumes:
@@ -153,23 +153,23 @@ parameter_defaults:
     ANSIBLE_SSH_RETRIES: '6'
     DEFAULT_FORKS: '25'
 
-  KernelArgs: "crashkernel=no rhgb console=ttyS1,115200 console=ttyS0,115200n8"
-  NovaReservedHostMemory: 16384
-  NovaIPv6: True
-  NovaSchedulerDefaultFilters: ['AvailabilityZoneFilter','ComputeFilter','ComputeCapabilitiesFilter','ImagePropertiesFilter','ServerGroupAntiAffinityFilter','ServerGroupAffinityFilter','PciPassthroughFilter','NUMATopologyFilter','AggregateInstanceExtraSpecsFilter']
-
-  BannerText: |
-    ******************************************************************
-    * ****************************  VGTU  ************************** *
-    * This system is for the use of authorized users only. Usage of  *
-    * this system may be monitored and recorded by system personnel. *
-    * Anyone using this system expressly consents to such monitoring *
-    * and is advised that if such monitoring reveals possible        *
-    * evidence of criminal activity, system personnel may provide    *
-    * the evidence from such monitoring to law enforcement officials.*
-    ******************************************************************
-  MessageOfTheDay: |
-    ALERT! You are entering into a secured VGTU Cloud area!
-    This service is restricted to authorized users only.
-    Please keep in mind, we are Angry and Bold! We will destroy you!
-
+##  KernelArgs: "crashkernel=no rhgb console=ttyS1,115200 console=ttyS0,115200n8"
+##  NovaReservedHostMemory: 16384
+##  NovaIPv6: True
+##  NovaSchedulerDefaultFilters: ['AvailabilityZoneFilter','ComputeFilter','ComputeCapabilitiesFilter','ImagePropertiesFilter','ServerGroupAntiAffinityFilter','ServerGroupAffinityFilter','PciPassthroughFilter','NUMATopologyFilter','AggregateInstanceExtraSpecsFilter']
+##
+##  BannerText: |
+##    ******************************************************************
+##    * ****************************  VGTU  ************************** *
+##    * This system is for the use of authorized users only. Usage of  *
+##    * this system may be monitored and recorded by system personnel. *
+##    * Anyone using this system expressly consents to such monitoring *
+##    * and is advised that if such monitoring reveals possible        *
+##    * evidence of criminal activity, system personnel may provide    *
+##    * the evidence from such monitoring to law enforcement officials.*
+##    ******************************************************************
+##  MessageOfTheDay: |
+##    ALERT! You are entering into a secured VGTU Cloud area!
+##    This service is restricted to authorized users only.
+##    Please keep in mind, we are Angry and Bold! We will destroy you!
+####
