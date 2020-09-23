@@ -12,15 +12,15 @@
   tags:
     - primary
     - controller
-  networks:
-    External:
-      subnet: external_subnet
-    InternalApi:
-      subnet: internal_api_subnet
-    Storage:
-      subnet: storage_subnet
-    StorageMgmt:
-      subnet: storage_mgmt_subnet
+#  networks:
+#    External:
+#      subnet: external_subnet
+#    InternalApi:
+#      subnet: internal_api_subnet
+#    Storage:
+#      subnet: storage_subnet
+#    StorageMgmt:
+#      subnet: storage_mgmt_subnet
     Tenant:
       subnet: tenant_subnet
   # For systems with both IPv4 and IPv6, you may specify a gateway network for
@@ -191,15 +191,15 @@
   description: |
     Compute Node role hosting Ceph OSD too
   CountDefault: 0
-  networks:
-    InternalApi:
-      subnet: internal_api_subnet
-    Tenant:
-      subnet: tenant_subnet
-    Storage:
-      subnet: storage_subnet
-    StorageMgmt:
-      subnet: storage_mgmt_subnet
+#  networks:
+#    InternalApi:
+#      subnet: internal_api_subnet
+#    Tenant:
+#      subnet: tenant_subnet
+#    Storage:
+#      subnet: storage_subnet
+#    StorageMgmt:
+#      subnet: storage_mgmt_subnet
   RoleParametersDefault:
     TunedProfileName: "throughput-performance"
   # CephOSD present so serial has to be 1
