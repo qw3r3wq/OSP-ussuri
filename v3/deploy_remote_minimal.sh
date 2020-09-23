@@ -9,7 +9,6 @@ time openstack --verbose overcloud deploy \
     --templates \
     --stack v3 \
     -r ${_LTHT}/roles-data.yaml \
-    -n ${_LTHT}/network_data.yaml \
     -e ${_LTHT}/containers-prepare-parameter.yaml \
     -e ${_LTHT}/overcloud_images.yaml \
     -e ${_THT}/environments/disable-telemetry.yaml \
@@ -27,5 +26,6 @@ time openstack --verbose overcloud deploy \
 #    -e ${_THT}/environments/ceph-ansible/ceph-mds.yaml \
 #    -e ${_THT}/environments/ceph-ansible/ceph-rgw.yaml \
 #    -e ${_THT}/environments/ceph-ansible/ceph-mds.yaml \
+#    -n ${_LTHT}/network_data.yaml \
 
 
