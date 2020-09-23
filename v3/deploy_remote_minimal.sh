@@ -9,6 +9,7 @@ time openstack --verbose overcloud deploy \
     --templates \
     --stack v3 \
     -r ${_LTHT}/roles-data.yaml \
+    -n ${_LTHT}/net_data_minimal.yaml \
     -e ${_LTHT}/containers-prepare-parameter.yaml \
     -e ${_LTHT}/overcloud_images.yaml \
     -e ${_THT}/environments/disable-telemetry.yaml \
