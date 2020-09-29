@@ -1,0 +1,76 @@
+disk_images:
+  -
+    imagename: overcloud-full
+    type: qcow2
+    distro: centos
+    release: 8
+    elements:
+      - baremetal
+      - dhcp-all-interfaces
+      - openvswitch
+      - overcloud-agent
+      - overcloud-base
+      - overcloud-controller
+      - overcloud-compute
+      - overcloud-ceph-storage
+      - overcloud-secure
+      - puppet-modules
+      - stable-interface-names
+      - bootloader
+      - element-manifest
+      - dynamic-login
+      - iptables
+      - enable-packages-install
+      - override-pip-and-virtualenv
+      - dracut-regenerate
+      - remove-machine-id
+      - remove-resolvconf
+      - modprobe
+      - openssh
+      - disable-nouveau
+      - selinux-permissive
+    packages:
+      - python3-psutil
+      - python3-debtcollector
+      - sos
+      - lldpd
+      - sysstat
+      - device-mapper-multipath
+      - openstack-heat-agents
+      - os-net-config
+      - jq
+      - python3-dbus
+    options:
+      - "--min-tmpfs=7"
+      - "--mkfs-options '-s size=4096'"
+    environment:
+      FS_TYPE: xfs
+      DIB_PYTHON_VERSION: '3'
+      DIB_MODPROBE_BLACKLIST: 'usb-storage cramfs freevxfs jffs2 hfs hfsplus squashfs udf vfat bluetooth'
+      DIB_BOOTLOADER_DEFAULT_CMDLINE: 'nofb nomodeset vga=normal console=tty1 console=ttyS1,115200 crashkernel=no audit=1 nousb'
+      DIB_IMAGE_SIZE: '100'
+      COMPRESS_IMAGE: '1'
+  -
+    imagename: ironic-python-agent
+    type: qcow2
+    imageext: initramfs
+    distro: centos
+    release: 8
+    elements:
+      - ironic-agent
+      - ironic-agent-multipath
+      - dynamic-login
+      - element-manifest
+      - network-gateway
+      - enable-packages-install
+      - override-pip-and-virtualenv
+      - interface-names
+      - selinux-permissive
+    packages:
+      - python3-hardware-detect
+    options:
+      - "--min-tmpfs=7"
+    environment:
+      DIB_PYTHON_VERSION: '3'
+      DIB_BOOTLOADER_DEFAULT_CMDLINE: 'nofb console=tty1 console=ttyS1,115200 crashkernel=no'
+
