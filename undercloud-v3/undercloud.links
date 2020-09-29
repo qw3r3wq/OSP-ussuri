@@ -29,4 +29,21 @@ https://www.mellanox.com/related-docs/prod_software/Mellanox_Support_for_TripleO
 
 https://docs.centos.org/en-US/centos/install-guide/Kickstart2/
 
+https://ceph.com/pgcalc/
+https://access.redhat.com/labs/cephpgc/
+
+https://docs.openstack.org/project-deploy-guide/tripleo-docs/latest/features/ceph_config.html
+https://slagle.fedorapeople.org/tripleo-docs/install/advanced_deployment/ceph_config.html
+https://docs.openstack.org/project-deploy-guide/tripleo-docs/latest/features/distributed_multibackend_storage.html#stacks
+https://docs.ceph.com/en/latest/ceph-volume/lvm/batch/
+https://docs.openstack.org/project-deploy-guide/tripleo-docs/latest/features/ceph_config.html#configure-osd-settings-with-ceph-ansible
+
+https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/16.1/html-single/deploying_an_overcloud_with_containerized_red_hat_ceph/index#proc_changing-the-default-permissions
+
+https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/16.1/html-single/director_installation_and_usage/index#disk-image-environment-variables
+
+https://www.dell.com/support/manuals/lt/en/ltbsdt1/idrac7-8-lifecycle-controller-v2.40.40.40/idrac%20racadm%202.40.40.40/storage?guid=guid-9e3676cb-b71d-420b-8c48-c80add258e03&lang=en-us
+
+https://access.redhat.com/discussions/664843 < virt-customize password
+dnf install libguestfish-tools-c
 

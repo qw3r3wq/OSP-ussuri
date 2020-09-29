@@ -2,10 +2,16 @@ cp -ar /etc/yum.repos.d repos
 sed -i s/gpgcheck=1/gpgcheck=0/g repos/*repo
 export DIB_YUM_REPO_CONF="$(ls /home/stack/repos/*repo)"
 export STABLE_RELEASE="ussuri"
+export OS_YAML="/usr/share/openstack-tripleo-common/image-yaml/overcloud-hardened-images-centos8.yaml"
+sed /^ - sos/a       - sysstat /usr/share/openstack-tripleo-common/image-yaml/overcloud-hardened-images-python3.yaml | sed /^ - sos/a       - lldpd > /home/stack/overcloud-images-python3.yaml
+sed -i s/console=ttyS0,115200/console=ttyS1,115200 crashkernel=no/g /home/stack/overcloud-images-python3.yaml
+# /usr/share/tripleo-puppet-elements/overcloud-opstools/pkg-map
+
 source /home/stack/stackrc
 mkdir /home/stack/images
 cd /home/stack/images
-openstack overcloud image build && openstack overcloud image upload
+openstack overcloud image build --config-file /home/stack/overcloud-images-python3.yaml
+openstack overcloud image upload --update-existing
 cd /home/stack
 ls /home/stack/images
 
